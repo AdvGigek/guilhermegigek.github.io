@@ -1,0 +1,233 @@
+/* ===================================================================
+   Guilherme Gigek — Advocacia & Consultoria Jurídica
+   Paleta: #351430 (estrutural) · #6E5858 (apoio) · #f5f5f5 (claro)
+   Tipografia: Libre Baskerville (display) · Lora (corpo) · JetBrains Mono (labels)
+   =================================================================== */
+
+:root{
+  --plum:      #351430;   /* estrutural */
+  --plum-900:  #2a0f26;
+  --plum-700:  #4a2043;
+  --mauve:     #6E5858;   /* apoio */
+  --mauve-300: #a08c8c;
+  --light:     #f5f5f5;   /* terciária */
+  --paper:     #ffffff;
+  --ink:       #241321;
+  --gold:      #c6a15b;   /* acento quente, harmoniza com o plum */
+  --gold-soft: #d8be8c;
+  --line:      rgba(255,255,255,.14);
+  --line-dark: rgba(53,20,48,.12);
+
+  --ff-display: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  --ff-body:    "Lora", Georgia, serif;
+  --ff-mono:    "JetBrains Mono", ui-monospace, "Courier New", monospace;
+
+  --wrap: 1140px;
+  --pad: clamp(20px, 5vw, 48px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--plum);
+  color:var(--light);
+  font-family:var(--ff-body);
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-inline:var(--pad)}
+
+h1,h2,h3{font-family:var(--ff-display);font-weight:700;line-height:1.12;letter-spacing:.2px}
+h1{font-size:clamp(2.1rem,5.2vw,3.6rem);margin:.2em 0 .5em}
+h2{font-size:clamp(1.7rem,3.6vw,2.6rem);margin:0 0 .6em}
+h3{font-size:1.28rem;margin:0 0 .4em}
+
+.eyebrow{
+  font-family:var(--ff-mono);
+  font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold-soft);
+  display:flex;align-items:center;gap:.8em;margin:0 0 1.2em;
+}
+.eyebrow .rule{display:inline-block;width:34px;height:1px;background:var(--gold)}
+.kicker{
+  font-family:var(--ff-mono);font-size:.8rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mauve-300);margin:0 0 1em;
+}
+.lede{color:#e7dfe3;font-size:1.08rem;max-width:46ch}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5em;
+  font-family:var(--ff-mono);font-size:.82rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.95em 1.6em;border-radius:2px;
+  transition:transform .2s ease, background .2s ease, color .2s ease;
+}
+.btn-gold{background:var(--gold);color:var(--plum-900);font-weight:500}
+.btn-gold:hover{background:var(--gold-soft);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--light)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-soft)}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(42,15,38,.82);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding-block:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid var(--gold);color:var(--gold-soft);
+  font-family:var(--ff-display);font-weight:700;font-size:1.05rem;border-radius:2px;
+}
+.brand-name{font-family:var(--ff-display);font-size:1.05rem;display:block;line-height:1.1}
+.brand-sub{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mauve-300)}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:.95rem;color:#e7dfe3;transition:color .2s}
+.nav a:hover{color:var(--gold-soft)}
+.nav .nav-cta{
+  font-family:var(--ff-mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid var(--line);padding:.6em 1.1em;border-radius:2px;
+}
+.nav .nav-cta:hover{border-color:var(--gold)}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2px;background:var(--light);transition:.3s}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;overflow:hidden;padding-block:clamp(48px,8vw,96px)}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(110,88,88,.35), transparent 60%),
+    radial-gradient(700px 500px at -10% 110%, rgba(198,161,91,.10), transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-copy{align-self:center}
+.hero-copy .tags{display:flex;flex-wrap:wrap;gap:10px;margin:1.8em 0}
+.tag{
+  font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#e7dfe3;border:1px solid var(--line);border-radius:40px;padding:.5em 1.1em;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:.4em}
+.hero-photo{position:relative}
+.hero-photo img{
+  width:100%;border-radius:3px;position:relative;z-index:1;
+  aspect-ratio:4/5;max-height:540px;object-fit:cover;object-position:50% 30%;
+  filter:grayscale(.1) contrast(1.02);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.7);
+}
+.photo-frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);border-radius:3px;z-index:0}
+
+/* ---------- Sobre ---------- */
+.sobre{background:var(--light);color:var(--ink)}
+.sobre .eyebrow{color:var(--mauve)}
+.sobre .eyebrow .rule{background:var(--gold)}
+.sobre-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:center;
+  padding-block:clamp(56px,9vw,110px)}
+.sobre-photo img{width:100%;border-radius:3px;
+  aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;
+  filter:grayscale(1) contrast(1.05);
+  box-shadow:0 24px 60px -30px rgba(53,20,48,.5)}
+.sobre-copy h2{color:var(--plum)}
+.sobre-copy p{color:#4a3a43}
+.sobre-copy strong{color:var(--plum)}
+.facts{list-style:none;padding:0;margin:2em 0 0;display:grid;gap:14px}
+.facts li{display:grid;grid-template-columns:120px 1fr;gap:16px;padding-top:14px;
+  border-top:1px solid var(--line-dark);font-size:.98rem;color:#4a3a43}
+.facts span{font-family:var(--ff-mono);font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mauve)}
+
+/* ---------- Section head ---------- */
+.section-head{max-width:40ch;margin:0 0 clamp(32px,5vw,56px)}
+
+/* ---------- Áreas ---------- */
+.areas{padding-block:clamp(56px,9vw,110px);background:var(--plum)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);border-radius:3px;
+  padding:34px 30px 30px;background:linear-gradient(160deg,rgba(110,88,88,.10),transparent);
+  transition:border-color .25s, transform .25s;
+}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card-num{
+  position:absolute;top:10px;right:18px;font-family:var(--ff-display);
+  font-size:3.4rem;color:rgba(255,255,255,.06);line-height:1;pointer-events:none;
+}
+.card h3{color:var(--light)}
+.card p{color:#d8ccd2;font-size:.98rem;margin:0 0 1.2em}
+.card-link{font-family:var(--ff-mono);font-size:.76rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-soft)}
+.card-link:hover{color:var(--gold)}
+
+/* ---------- Método ---------- */
+.metodo{padding-block:clamp(56px,9vw,110px);background:var(--plum-900)}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.steps li{border-top:1px solid var(--line);padding-top:22px}
+.step-num{font-family:var(--ff-mono);font-size:.8rem;letter-spacing:.1em;color:var(--gold)}
+.steps h3{margin:.5em 0 .3em;font-size:1.15rem}
+.steps p{color:#cbbcc4;font-size:.95rem;margin:0}
+
+/* ---------- Contato ---------- */
+.contato{background:var(--light);color:var(--ink);padding-block:clamp(56px,9vw,110px)}
+.contato .eyebrow{color:var(--mauve)}
+.contato .eyebrow .rule{background:var(--gold)}
+.contato-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,64px);align-items:start}
+.contato-copy h2{color:var(--plum)}
+.contato-copy .lede{color:#4a3a43}
+.contato-list{list-style:none;padding:0;margin:0;display:grid;gap:4px}
+.contato-list li{display:grid;gap:4px;padding:18px 0;border-top:1px solid var(--line-dark)}
+.c-label{font-family:var(--ff-mono);font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mauve)}
+.contato-list a,.contato-list span{color:var(--plum);font-size:1.05rem}
+.contato-list a:hover{color:var(--gold)}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--plum-900);padding-block:48px;border-top:1px solid var(--line)}
+.footer-brand{font-family:var(--ff-display);font-size:1.15rem;margin:0 0 .4em}
+.footer-brand span{color:var(--gold)}
+.footer-meta{font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.1em;
+  color:var(--mauve-300);margin:0 0 1.4em}
+.footer-fine{font-size:.82rem;color:#9a8893;max-width:70ch;margin:0;line-height:1.6}
+
+/* ---------- WhatsApp float ---------- */
+.whats-float{
+  position:fixed;right:22px;bottom:22px;z-index:60;
+  width:56px;height:56px;border-radius:50%;
+  background:#25d366;color:#fff;display:grid;place-items:center;
+  box-shadow:0 10px 30px -8px rgba(0,0,0,.5);transition:transform .2s;
+}
+.whats-float:hover{transform:scale(1.07)}
+
+/* ---------- Responsivo ---------- */
+@media (max-width:860px){
+  .nav-toggle{display:flex}
+  .nav{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:0;
+    background:var(--plum-900);border-bottom:1px solid var(--line);
+    padding:8px var(--pad) 20px;
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+  }
+  .nav.open{max-height:360px}
+  .nav a{width:100%;padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav .nav-cta{margin-top:12px;width:auto}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{max-width:420px;margin-inline:auto;order:-1}
+  .sobre-grid{grid-template-columns:1fr}
+  .sobre-photo{max-width:360px}
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .contato-grid{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .steps{grid-template-columns:1fr}
+  .facts li{grid-template-columns:1fr}
+}
