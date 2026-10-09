@@ -79,12 +79,16 @@ h3{font-size:1.28rem;margin:0 0 .4em}
   border-bottom:1px solid var(--line);
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding-block:16px}
-.brand{display:flex;align-items:center}
-.brand-logo{height:44px;width:auto;display:block}
-@media (max-width:860px){.brand-logo{height:40px}}
-@media (max-width:480px){.brand-logo{height:36px}}
-.nav{display:flex;align-items:center;gap:26px}
-@media (max-width:1040px) and (min-width:861px){.nav{gap:18px}.nav a{font-size:.88rem}}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{
+  width:42px;height:42px;display:grid;place-items:center;
+  border:1px solid var(--gold);color:var(--gold-soft);
+  font-family:var(--ff-display);font-weight:700;font-size:1.05rem;border-radius:2px;
+}
+.brand-name{font-family:var(--ff-display);font-size:1.05rem;display:block;line-height:1.1}
+.brand-sub{font-family:var(--ff-mono);font-size:.62rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--mauve-300)}
+.nav{display:flex;align-items:center;gap:30px}
 .nav a{font-size:.95rem;color:#e7dfe3;transition:color .2s}
 .nav a:hover{color:var(--gold-soft)}
 .nav .nav-cta{
@@ -187,9 +191,8 @@ h3{font-size:1.28rem;margin:0 0 .4em}
 
 /* ---------- Footer ---------- */
 .site-footer{background:var(--plum-900);padding-block:48px;border-top:1px solid var(--line)}
-.footer-logo{height:64px;width:auto;margin:0 0 14px;opacity:.95}
-.footer-brand{font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--mauve-300);margin:0 0 1.4em}
+.footer-brand{font-family:var(--ff-display);font-size:1.15rem;margin:0 0 .4em}
+.footer-brand span{color:var(--gold)}
 .footer-meta{font-family:var(--ff-mono);font-size:.74rem;letter-spacing:.1em;
   color:var(--mauve-300);margin:0 0 1.4em}
 .footer-fine{font-size:.82rem;color:#9a8893;max-width:70ch;margin:0;line-height:1.6}
